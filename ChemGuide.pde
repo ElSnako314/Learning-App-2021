@@ -1,16 +1,15 @@
 userInterface ui = new userInterface();
+//Button begin = new Button(0, 0, 0, 0, 0, 0, 0, 0);
 
 public void setup() {
   size(displayWidth, displayHeight);
-  
 }
 
 public void draw() {
   background(#C9F374);
-  ui.Title(displayWidth - 50, .2 * displayHeight);
-  ui.beginButton(.25 * displayWidth, .1 * displayHeight);
+  ui.Title(25, 25, displayWidth - 50, .15 * displayHeight);
 }
 
 public void mouseReleased() {
-  System.out.println("HOLA WORLD");
+  System.out.println(displayWidth + " " + displayHeight);
 }

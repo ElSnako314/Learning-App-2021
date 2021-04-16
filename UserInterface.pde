@@ -1,30 +1,24 @@
 public class userInterface {
-  private int x = 25, y = 25;
-  private int buttonX, buttonY;
-  private boolean pressed = false;
+  private int x, y;
+  PFont thisFont;
 
   
-  public void Title(float length, float width) {
+  public void Title(int x, int y, float width, float length) {
+    //Constructor Portion
+    this.x = x;
+    this.y = y;
+    
+    //Draw the title box
     strokeWeight(5);
     stroke(#556B2F);
     fill(#C0FF3E);
-    rect(x, y, length, width);
-    textSize(50);
+    rect(this.x, this.y, width, length);
+    
+    //Words with new Font
+    thisFont = createFont("Bell MT Bold", 48);
+    textFont(thisFont);
     fill(#000000);
-    text("Welcome to ChemGuide! Begin with the menus below.", 75, 150);
-  }
-  
-  public void beginButton(float length, float width) {
-    strokeWeight(3);
-    stroke(#556B2F);
-    fill(#B3EE3A);
-    rect(500, 700, length, width);
-    textSize(60);
-    fill(#000000);
-    text("Begin", 600, 770);
-  }
-  
-  public boolean isClicked() {
-    return false;
+    textAlign(CENTER);
+    text("Welcome to ChemGuide! Begin with the menus below.", (int) (x + (width/20)), (int) (y + (length/4)), (int) ((9.0/10) * width), (int) (length/2));
   }
 }
