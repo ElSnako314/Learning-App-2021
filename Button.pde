@@ -13,6 +13,7 @@ public class Button {
     this.w = w;
     this.h = h;
     this.title = title;
+    this.stroke = stroke;
     this.c1 = c1;
     this.c2 = c2;
     this.clickArea = new Rectangle(x,y,w,h);
@@ -23,7 +24,9 @@ public class Button {
   }
   
   public void draw() {
-    fill(c1);
+    strokeWeight(stroke);
+    stroke(c1);
+    fill(c2);
     rect(x,y,w,h);
     
     fill(0);
