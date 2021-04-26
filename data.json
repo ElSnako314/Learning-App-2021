@@ -1,16 +1,232 @@
 [
     {
-        "id": 0,
-        "name": "X",
+        "id": hydrogen,
+        "name": H,
+        "charge": 1, 
+    },
+    {
+        "id": lithium,
+        "name": Li,
+        "charge": 1, 
+    },
+    {
+        "id": sodium,
+        "name": Na,
+        "charge": 1, 
+    },
+    {
+        "id": potassium,
+        "name": K,
+        "charge": 1, 
+    },
+    {
+        "id": rubidium,
+        "name": Rb,
+        "charge": 1, 
+    },
+    {
+        "id": cesium,
+        "name": Cs,
+        "charge": 1, 
+    },
+    {
+        "id": magnesium,
+        "name": Mg,
+        "charge": 2, 
+    },
+    {
+        "id": calcium,
+        "name": Ca,
+        "charge": 2, 
+    },
+    {
+        "id": strontium,
+        "name": Sr,
+        "charge": 2, 
+    },
+    {
+        "id": barium,
+        "name": Ba,
+        "charge": 2, 
+    },
+    {
+        "id": aluminum,
+        "name": Al,
+        "charge": 3, 
+    },
+    {
+        "id": tin(II),
+        "name": Sn,
+        "charge": 2, 
+    },
+    {
+        "id": tin(IV),
+        "name": Sn,
+        "charge": 4, 
+    },
+    {
+        "id": lead,
+        "name": Pb,
+        "charge": 2, 
+    },
+    {
+        "id": iron(II),
+        "name": Fe,
+        "charge": 2, 
+    },
+    {
+        "id": iron(III),
+        "name": Fe,
+        "charge": 3, 
+    },
+    {
+        "id": copper(I),
+        "name": Cu,
+        "charge": 1, 
+    },
+    {
+        "id": copper(II),
+        "name": Cu,
+        "charge": 2, 
+    },
+    {
+        "id": zinc,
+        "name": Zn,
+        "charge": 2, 
+    },
+    {
+        "id": silver,
+        "name": Ag,
+        "charge": 1, 
+    },
+    {
+        "id": fluoride,
+        "name": F,
         "charge": -1, 
     },
     {
-        "id": 1,
-    }
-    
-    
-    
-    
-    
-    
+        "id": chloride,
+        "name": Cl,
+        "charge": -1, 
+    },
+    {
+        "id": bromide,
+        "name": Br,
+        "charge": -1, 
+    },
+    {
+        "id": iodide,
+        "name": I,
+        "charge": -1, 
+    },
+    {
+        "id": nitride,
+        "name": N,
+        "charge": -3, 
+    },
+    {
+        "id": oxide,
+        "name": O,
+        "charge": -2, 
+    },
+    {
+        "id": sulfide,
+        "name": S,
+        "charge": -2, 
+    },
+    {
+        "id": ammonium,
+        "name": NH4,
+        "charge": 1, 
+    },
+    {
+        "id": bicarbonate,
+        "name": HCO3,
+        "charge": -1,
+    },
+    {
+        "id": cyanide,
+        "name": CN,
+        "charge": -1,
+    },
+    {
+        "id": bisulfate,
+        "name": HSO4,
+        "charge": -1,
+    },
+    {
+        "id": hydroxide,
+        "name": OH,
+        "charge": -1,
+    },
+    {
+        "id": nitrate,
+        "name": NO3,
+        "charge": -1,
+    },
+    {
+        "id": nitrite,
+        "name": NO2,
+        "charge": -1,
+    },
+    {
+        "id": hypochlorite,
+        "name": ClO,
+        "charge": -1,
+    },
+    {
+        "id": chlorite,
+        "name": ClO2,
+        "charge": -1,
+    },
+    {
+        "id": chlorate,
+        "name": ClO3,
+        "charge": -1,
+    },
+    {
+        "id": perchlorate,
+        "name": ClO4,
+        "charge": -1,
+    },
+    {
+        "id": permanganate,
+        "name": MnO4,
+        "charge": -1,
+    },
+    {
+        "id": carbonate,
+        "name": CO3,
+        "charge": -2,
+    },
+    {
+        "id": chromate,
+        "name": CrO4,
+        "charge": -2,
+    },
+    {
+        "id": dichromate,
+        "name": Cr2O7,
+        "charge": -2,
+    },
+    {
+        "id": sulfate,
+        "name": SO4,
+        "charge": -2,
+    },
+    {
+        "id": sulfite,
+        "name": SO3,
+        "charge": -2,
+    },
+    {
+        "id": thiosulfite,
+        "name": S2O3,
+        "charge": -2,
+    },
+    {
+        "id": phosphate,
+        "name": PO4,
+        "charge": -3,
+    },
 ]

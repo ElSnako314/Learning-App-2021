@@ -1,4 +1,4 @@
-public class userInterface {
+public class UserInterface {
   private int x, y;
   PFont thisFont;
 
