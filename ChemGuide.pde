@@ -7,8 +7,9 @@ private boolean beginClicked = false;
 //Second Menu
 Button[] reactionTypes = new Button[4];
 //Compound Menus
-CompoundList list = new CompoundList();
 JSONArray ions;
+CompoundList list = new CompoundList();
+ArrayList displayNames;
 
 public void setup() {
   //Setup Screen
@@ -20,16 +21,7 @@ public void setup() {
   reactionTypes[3] = new Button(25 + (int) (dWidth * .75), (int) (dHeight * .8), (int) ((dWidth - 50) * .25), (int) (dHeight * .1), "Unsure", 10, #1D8449, #2ECC71);
   //Setup Compound List
   ions = loadJSONArray("data.json");
-  
-  for (int i = 0; i < ions.size(); i++) {
-    JSONObject ion = ions.getJSONObject(i);
-    
-    String name = ion.getString("id");
-    String formula = ion.getString("name");
-    int charge = ion.getInt("charge");
-    
-    println(name + ", " + formula + ", " + charge);
-  }
+  displayNames = list.initializeList(ions);
 }
 
 public void draw() {
