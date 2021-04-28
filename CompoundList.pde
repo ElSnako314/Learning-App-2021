@@ -5,12 +5,43 @@ public class CompoundList {
   public String displayName;
   ArrayList<String> displayNames = new ArrayList();
   
+  public JSONArray compileCation(JSONArray jsonarray) {
+    JSONArray cations = new JSONArray();
+    int count = 0;
+    for (int i = 0; i < jsonarray.size(); i++) {
+      JSONObject currentCompound = jsonarray.getJSONObject(i);
+      charge = currentCompound.getInt("charge");
+      
+      if (charge > 0) {
+        cations.setJSONObject(count, currentCompound);
+        count++;
+      }
+      System.out.println(count);
+    }
+    return cations;
+  }
+  
+  public JSONArray compileAnion(JSONArray jsonarray) {
+    JSONArray anions = new JSONArray();
+    int count = 0;
+    for (int i = 0; i < jsonarray.size(); i++) {
+      JSONObject currentCompound = jsonarray.getJSONObject(i);
+      charge = currentCompound.getInt("charge");
+      
+      if (charge < 0) {
+        anions.setJSONObject(count, currentCompound);
+        count++;
+      }
+      System.out.println(count);
+    }
+    return anions;
+  }
+  
   public ArrayList initializeList(JSONArray jsonarray) {
     for (int i = 0; i < jsonarray.size(); i++) {
       //Get the JSONObject (the compound database)
       JSONObject currentCompound = jsonarray.getJSONObject(i);
       charge = currentCompound.getInt("charge");
-      name = currentCompound.getString("id");
       formula = currentCompound.getString("name");
       
       //Format the cation
@@ -89,11 +120,14 @@ public class CompoundList {
       //Put it into the array
       displayNames.add(i, displayName);
     }
-    
     return displayNames;
   }
   
-  public void cationMenu(ArrayList list) {
-  
+  public void displayIons(String formula, Button[][] ions) {
+    for (int i = 0; i < ions.length; i++) {
+      for (int j = 0; j < ions[0].length; i++) {
+        ions[i][j] = new Button(200 + i*100, 200 + j*100, 100, 100, formula, 4, #7F0000, #FF7F7F);
+      }
+    }
   }
 }

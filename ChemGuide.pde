@@ -7,9 +7,11 @@ private boolean beginClicked = false;
 //Second Menu
 Button[] reactionTypes = new Button[4];
 //Compound Menus
-JSONArray ions;
+JSONArray ions, cations, anions;
 CompoundList list = new CompoundList();
-ArrayList displayNames;
+ArrayList displayCation, displayAnion;
+Button[][] cationButtons = new Button[5][5];
+Button[][] anionButtons = new Button[5][5];
 
 public void setup() {
   //Setup Screen
@@ -21,7 +23,11 @@ public void setup() {
   reactionTypes[3] = new Button(25 + (int) (dWidth * .75), (int) (dHeight * .8), (int) ((dWidth - 50) * .25), (int) (dHeight * .1), "Unsure", 10, #1D8449, #2ECC71);
   //Setup Compound List
   ions = loadJSONArray("data.json");
-  displayNames = list.initializeList(ions);
+  cations = list.compileCation(ions);
+  anions = list.compileAnion(ions);
+  displayCation = list.initializeList(cations);
+  displayAnion = list.initializeList(anions);
+  //Initialize Button[][]s
 }
 
 public void draw() {
