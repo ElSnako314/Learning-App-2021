@@ -38,4 +38,42 @@ public class UserInterface {
     textAlign(CENTER);
     text("Which kind of reaction would you like to balance?", x + width/2, y + height/2);
   }
+  
+  public void whichCation(int x, int y, float width, float height, int step) {
+    this.x = x;
+    this.y = y;
+    String n = "";
+    
+    strokeWeight(5);
+    stroke(#556B2F);
+    fill(#C0FF3E);
+    rect(this.x, this.y, width, height);
+    
+    if (step == 1) n = "first";
+    else if (step == 3) n = "second";
+    thisFont = createFont("Bell MT Bold", 36);
+    textFont(thisFont);
+    fill(#000000);
+    textAlign(CENTER);
+    text("In your " + n + " compound, what is your cation?", x + width/2, y + height/2);
+  }
+  
+  public void whichAnion(int x, int y, float width, float height, int step) {
+    this.x = x;
+    this.y = y;
+    String n = "";
+    
+    strokeWeight(5);
+    stroke(#556B2F);
+    fill(#C0FF3E);
+    rect(this.x, this.y, width, height);
+    
+    if (step == 2) n = "first";
+    else if (step == 4) n = "second";
+    thisFont = createFont("Bell MT Bold", 36);
+    textFont(thisFont);
+    fill(#000000);
+    textAlign(CENTER);
+    text("In your " + n + " compound, what is your anion?", x + width/2, y + height/2);
+  }
 }

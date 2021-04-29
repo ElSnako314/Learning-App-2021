@@ -6,12 +6,14 @@ Button begin = new Button((int) (dWidth * .5) - 100, (int) (dHeight * .6) - 80, 
 private boolean beginClicked = false;
 //Second Menu
 Button[] reactionTypes = new Button[4];
+private boolean displacementClicked = false;
 //Compound Menus
 JSONArray ions, cations, anions;
 CompoundList list = new CompoundList();
 ArrayList displayCation, displayAnion;
 Button[][] cationButtons = new Button[5][5];
 Button[][] anionButtons = new Button[5][5];
+public int step = 0;
 
 public void setup() {
   //Setup Screen
@@ -27,7 +29,6 @@ public void setup() {
   anions = list.compileAnion(ions);
   displayCation = list.initializeList(cations);
   displayAnion = list.initializeList(anions);
-  //Initialize Button[][]s
 }
 
 public void draw() {
@@ -37,16 +38,31 @@ public void draw() {
   //Draw First Menu Button
   if (!beginClicked) begin.draw();
   if (beginClicked) {
-    ui.QueryOne(25, (int) (dHeight * .3), dWidth - 50, .1 * dHeight);
     for (int i = 0; i < reactionTypes.length; i++) {
-      reactionTypes[i].draw();
+      if (!displacementClicked) {
+        ui.QueryOne(25, (int) (dHeight * .3), dWidth - 50, .1 * dHeight);
+        reactionTypes[i].draw();
+      }
     }
   }
-  
+  //Double Displacement Menu
+  if (displacementClicked && step == 1) {
+    //Initialize Button[][]s
+    textSize(36);
+    list.displayIons(displayCation, cationButtons);
+  }
+  else if (displacementClicked && step == 2) list.displayIons(displayAnion, anionButtons);
+  else if (displacementClicked && step == 3) list.displayIons(displayCation, cationButtons);
+  else if (displacementClicked && step == 4) list.displayIons(displayAnion, anionButtons);
 }
 
 public void mouseReleased() {
   if (begin.isClicked()) {
     beginClicked = true;
   }
+  if (beginClicked && reactionTypes[0].isClicked()) {
+    displacementClicked = true;
+    step++;
+  }
+  //if
 }

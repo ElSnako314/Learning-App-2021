@@ -3,7 +3,6 @@ public class CompoundList {
   public String name, formula;
   public boolean isCation;
   public String displayName;
-  ArrayList<String> displayNames = new ArrayList();
   
   public JSONArray compileCation(JSONArray jsonarray) {
     JSONArray cations = new JSONArray();
@@ -38,6 +37,7 @@ public class CompoundList {
   }
   
   public ArrayList initializeList(JSONArray jsonarray) {
+    ArrayList<String> displayNames = new ArrayList();
     for (int i = 0; i < jsonarray.size(); i++) {
       //Get the JSONObject (the compound database)
       JSONObject currentCompound = jsonarray.getJSONObject(i);
@@ -50,33 +50,33 @@ public class CompoundList {
       
       if (isCation) {
         if (charge == 1) {
-          formula = formula + "⁺";
+          formula = formula + "+";
         }
           displayName = formula;
         if (charge == 2) {
-          formula = formula + "²⁺";
+          formula = formula + "²+";
           displayName = formula;
         }
         if (charge == 3) {
-          formula = formula + "³⁺";
+          formula = formula + "³+";
           displayName = formula;
         }
         if (charge == 4) {
-          formula = formula + "⁴⁺";
+          formula = formula + "4+";
           displayName = formula;
         }
       }
       else {
         if (charge == 1) {
-          formula = formula + "⁻";
+          formula = formula + "-";
           displayName = formula;
         }
         if (charge == 2) {
-          formula = formula + "²⁻";
+          formula = formula + "²-";
           displayName = formula;
         }
         if (charge == 3) {
-          formula = formula + "³⁻";
+          formula = formula + "³-";
           displayName = formula;
         }
       }
@@ -92,7 +92,7 @@ public class CompoundList {
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("4")) {
-           formula = formula.substring(0, j) + "₄" + formula.substring(j+1, formula.length());
+           formula = formula.substring(0, j) + "4" + formula.substring(j+1, formula.length());
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("5")) {
@@ -123,10 +123,14 @@ public class CompoundList {
     return displayNames;
   }
   
-  public void displayIons(String formula, Button[][] ions) {
+  public void displayIons(ArrayList<String> formulas, Button[][] ions) {
+    int position = 0;
     for (int i = 0; i < ions.length; i++) {
-      for (int j = 0; j < ions[0].length; i++) {
-        ions[i][j] = new Button(200 + i*100, 200 + j*100, 100, 100, formula, 4, #7F0000, #FF7F7F);
+      for (int j = 0; j < ions[0].length; j++) {
+        ions[i][j] = new Button(25 + i*120, 200 + j*120, 120, 120, formulas.get(position), 4, #7F0000, #FF7F7F);
+        ions[i][j].draw();
+        if (position + 1 < formulas.size()) position++;
+        else break;
       }
     }
   }
