@@ -55,7 +55,7 @@ public class UserInterface {
     textFont(thisFont);
     fill(#000000);
     textAlign(CENTER);
-    text("In your " + n + " compound, what is your cation?", x + width/2, y + height/2);
+    text("In your " + n + " compound, \nwhat is the cation?", x + width/2, y + height/2);
   }
   
   public void whichAnion(int x, int y, float width, float height, int step) {
@@ -74,6 +74,6 @@ public class UserInterface {
     textFont(thisFont);
     fill(#000000);
     textAlign(CENTER);
-    text("In your " + n + " compound, what is your anion?", x + width/2, y + height/2);
+    text("In your " + n + " compound, \nwhat is your anion?", x + width/2, y + height/2);
   }
 }

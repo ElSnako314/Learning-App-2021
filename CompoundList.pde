@@ -1,5 +1,5 @@
 public class CompoundList {
-  public int charge;
+  //public int charge;
   public String name, formula;
   public boolean isCation;
   public String displayName;
@@ -9,7 +9,7 @@ public class CompoundList {
     int count = 0;
     for (int i = 0; i < jsonarray.size(); i++) {
       JSONObject currentCompound = jsonarray.getJSONObject(i);
-      charge = currentCompound.getInt("charge");
+      int charge = currentCompound.getInt("charge");
       
       if (charge > 0) {
         cations.setJSONObject(count, currentCompound);
@@ -25,7 +25,7 @@ public class CompoundList {
     int count = 0;
     for (int i = 0; i < jsonarray.size(); i++) {
       JSONObject currentCompound = jsonarray.getJSONObject(i);
-      charge = currentCompound.getInt("charge");
+      int charge = currentCompound.getInt("charge");
       
       if (charge < 0) {
         anions.setJSONObject(count, currentCompound);
@@ -41,7 +41,7 @@ public class CompoundList {
     for (int i = 0; i < jsonarray.size(); i++) {
       //Get the JSONObject (the compound database)
       JSONObject currentCompound = jsonarray.getJSONObject(i);
-      charge = currentCompound.getInt("charge");
+      int charge = currentCompound.getInt("charge");
       formula = currentCompound.getString("name");
       
       //Format the cation
@@ -54,29 +54,29 @@ public class CompoundList {
         }
           displayName = formula;
         if (charge == 2) {
-          formula = formula + "²+";
+          formula = formula + " ²+";
           displayName = formula;
         }
         if (charge == 3) {
-          formula = formula + "³+";
+          formula = formula + " ³+";
           displayName = formula;
         }
         if (charge == 4) {
-          formula = formula + "4+";
+          formula = formula + " 4+";
           displayName = formula;
         }
       }
       else {
-        if (charge == 1) {
+        if (charge == -1) {
           formula = formula + "-";
           displayName = formula;
         }
-        if (charge == 2) {
-          formula = formula + "²-";
+        if (charge == -2) {
+          formula = formula + " ²-";
           displayName = formula;
         }
-        if (charge == 3) {
-          formula = formula + "³-";
+        if (charge == -3) {
+          formula = formula + " ³-";
           displayName = formula;
         }
       }
@@ -84,11 +84,11 @@ public class CompoundList {
       //Format the subscripts
       for (int j = 0; j < formula.length(); j++) {
         if (formula.substring(j, j+1).equals("2")) {
-           formula = formula.substring(0, j) + "₂" + formula.substring(j+1, formula.length());
+           formula = formula.substring(0, j) + "2" + formula.substring(j+1, formula.length());
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("3")) {
-           formula = formula.substring(0, j) + "₃" + formula.substring(j+1, formula.length());
+           formula = formula.substring(0, j) + "3" + formula.substring(j+1, formula.length());
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("4")) {
@@ -104,7 +104,7 @@ public class CompoundList {
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("7")) {
-           formula = formula.substring(0, j) + "₇" + formula.substring(j+1, formula.length());
+           formula = formula.substring(0, j) + "7" + formula.substring(j+1, formula.length());
            displayName = formula;
         }
         if (formula.substring(j, j+1).equals("8")) {
@@ -127,7 +127,7 @@ public class CompoundList {
     int position = 0;
     for (int i = 0; i < ions.length; i++) {
       for (int j = 0; j < ions[0].length; j++) {
-        ions[i][j] = new Button(25 + i*120, 200 + j*120, 120, 120, formulas.get(position), 4, #7F0000, #FF7F7F);
+        ions[i][j] = new Button(25 + i*130, 200 + j*130, 130, 130, formulas.get(position), 4, #7F0000, #FF7F7F);
         ions[i][j].draw();
         if (position + 1 < formulas.size()) position++;
         else break;

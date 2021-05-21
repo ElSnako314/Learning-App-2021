@@ -14,6 +14,7 @@ ArrayList displayCation, displayAnion;
 Button[][] cationButtons = new Button[5][5];
 Button[][] anionButtons = new Button[5][5];
 public int step = 0;
+public Button cation1, cation2, anion1, anion2;
 
 public void setup() {
   //Setup Screen
@@ -48,12 +49,25 @@ public void draw() {
   //Double Displacement Menu
   if (displacementClicked && step == 1) {
     //Initialize Button[][]s
-    textSize(36);
+    textSize(30);
     list.displayIons(displayCation, cationButtons);
+    ui.whichCation((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
   }
-  else if (displacementClicked && step == 2) list.displayIons(displayAnion, anionButtons);
-  else if (displacementClicked && step == 3) list.displayIons(displayCation, cationButtons);
-  else if (displacementClicked && step == 4) list.displayIons(displayAnion, anionButtons);
+  else if (displacementClicked && step == 2) {
+    textSize(30);
+    list.displayIons(displayAnion, anionButtons);
+    ui.whichAnion((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
+  }  
+  else if (displacementClicked && step == 3) {
+    textSize(30);
+    list.displayIons(displayCation, cationButtons);
+    ui.whichCation((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
+  }
+  else if (displacementClicked && step == 4) {
+    textSize(30);
+    list.displayIons(displayAnion, anionButtons);
+    ui.whichAnion((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
+  }
 }
 
 public void mouseReleased() {
@@ -64,5 +78,52 @@ public void mouseReleased() {
     displacementClicked = true;
     step++;
   }
-  //if
+  if (beginClicked && displacementClicked && step == 1) {
+    for (Button[] cationRow : cationButtons) {
+      for (Button cation : cationRow) {
+        if (cation != null) {
+          if (cation.isClicked()) {
+            step++;
+            cation1 = cation;
+          }
+        }
+      }
+    }
+  }
+  if (beginClicked && displacementClicked && step == 2) {
+    for (Button[] anionRow : anionButtons) {
+      for (Button anion : anionRow) {
+        if (anion != null) {
+          if (anion.isClicked()) {
+            step++;
+            anion1 = anion;
+          }
+        }
+      }
+    }
+  }  
+  if (beginClicked && displacementClicked && step == 3) {
+    for (Button[] cationRow : cationButtons) {
+      for (Button cation : cationRow) {
+        if (cation != null && cation != cation1) {
+          if (cation.isClicked()) {
+            step++;
+            cation2 = cation;
+          }
+        }
+      }
+    }
+  }
+  if (beginClicked && displacementClicked && step == 4) {
+    for (Button[] anionRow : anionButtons) {
+      for (Button anion : anionRow) {
+        if (anion != null && anion != anion1) {
+          if (anion.isClicked()) {
+            step++;
+            anion2 = anion;
+          }
+        }
+      }
+    }
+  }   
 }
