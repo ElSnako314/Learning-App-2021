@@ -1,9 +1,9 @@
 public class CompoundList {
-  //public int charge;
   public String name, formula;
   public boolean isCation;
   public String displayName;
   
+  //compiles the cations from the much larger list into a smaller JSONArray containing just the cations (for easy access and use) 
   public JSONArray compileCation(JSONArray jsonarray) {
     JSONArray cations = new JSONArray();
     int count = 0;
@@ -15,11 +15,11 @@ public class CompoundList {
         cations.setJSONObject(count, currentCompound);
         count++;
       }
-      System.out.println(count);
     }
     return cations;
   }
   
+  //compiles the anions from the much larger list into a smaller JSONArray containing just the anions (for easy access and use)
   public JSONArray compileAnion(JSONArray jsonarray) {
     JSONArray anions = new JSONArray();
     int count = 0;
@@ -31,11 +31,11 @@ public class CompoundList {
         anions.setJSONObject(count, currentCompound);
         count++;
       }
-      System.out.println(count);
     }
     return anions;
   }
   
+  //Converts a JSONArray into printable strings (for display)
   public ArrayList initializeList(JSONArray jsonarray) {
     ArrayList<String> displayNames = new ArrayList();
     for (int i = 0; i < jsonarray.size(); i++) {
@@ -123,11 +123,14 @@ public class CompoundList {
     return displayNames;
   }
   
-  public void displayIons(ArrayList<String> formulas, Button[][] ions) {
+  //Formats the ArrayList into Buttons
+  public void displayIons(ArrayList<String> formulas, Button[][] ions, JSONArray jsonarray) {
     int position = 0;
     for (int i = 0; i < ions.length; i++) {
       for (int j = 0; j < ions[0].length; j++) {
-        ions[i][j] = new Button(25 + i*130, 200 + j*130, 130, 130, formulas.get(position), 4, #7F0000, #FF7F7F);
+        JSONObject currentCompound = jsonarray.getJSONObject(position);
+        int charge = currentCompound.getInt("charge");
+        ions[i][j] = new Button(25 + i*130, 200 + j*130, 130, 130, formulas.get(position), 4, #7F0000, #FF7F7F, "" + charge);
         ions[i][j].draw();
         if (position + 1 < formulas.size()) position++;
         else break;

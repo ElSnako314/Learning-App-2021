@@ -1,5 +1,6 @@
 public class UserInterface {
   private int x, y;
+  private String titleText;
   PFont thisFont;
 
   
@@ -19,7 +20,12 @@ public class UserInterface {
     textFont(thisFont);
     fill(#000000);
     textAlign(CENTER);
-    text("Welcome to ChemGuide! Begin with the menus below.", (int) (x + (width/20)), (int) (y + (height/4)), (int) ((9.0/10) * width), (int) (height/2));
+    titleText = "Welcome to ChemGuide! Begin with the menus below.";
+    text(titleText, (int) (x + (width/20)), (int) (y + (height/4)), (int) ((9.0/10) * width), (int) (height/2));
+  }
+  
+  public void setTitleText(String newTitle) {
+    titleText = newTitle;
   }
   
   public void QueryOne(int x, int y, float width, float height) {

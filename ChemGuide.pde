@@ -50,23 +50,26 @@ public void draw() {
   if (displacementClicked && step == 1) {
     //Initialize Button[][]s
     textSize(30);
-    list.displayIons(displayCation, cationButtons);
+    list.displayIons(displayCation, cationButtons, cations);
     ui.whichCation((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
   }
   else if (displacementClicked && step == 2) {
     textSize(30);
-    list.displayIons(displayAnion, anionButtons);
+    list.displayIons(displayAnion, anionButtons, anions);
     ui.whichAnion((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
   }  
   else if (displacementClicked && step == 3) {
     textSize(30);
-    list.displayIons(displayCation, cationButtons);
+    list.displayIons(displayCation, cationButtons, cations);
     ui.whichCation((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
   }
   else if (displacementClicked && step == 4) {
     textSize(30);
-    list.displayIons(displayAnion, anionButtons);
+    list.displayIons(displayAnion, anionButtons, anions);
     ui.whichAnion((int) (displayWidth * .5) + 25, 200, displayWidth * .5 - 50, 130, step); 
+  }
+  if (step == 5) {
+    ui.setTitleText("Your reaction has been balanced");
   }
 }
 
