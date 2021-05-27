@@ -20,8 +20,7 @@ public class UserInterface {
     textFont(thisFont);
     fill(#000000);
     textAlign(CENTER);
-    titleText = "Welcome to ChemGuide! Begin with the menus below.";
-    text(titleText, (int) (x + (width/20)), (int) (y + (height/4)), (int) ((9.0/10) * width), (int) (height/2));
+    text(this.titleText, (int) (x + (width/20)), (int) (y + (height/4)), (int) ((9.0/10) * width), (int) (height/2));
   }
   
   public void setTitleText(String newTitle) {
@@ -81,5 +80,21 @@ public class UserInterface {
     fill(#000000);
     textAlign(CENTER);
     text("In your " + n + " compound, \nwhat is your anion?", x + width/2, y + height/2);
+  }
+  
+  public void balancedReaction(int x, int y, float width, float height, String a, String b, String c, String d, String e) {
+    this.x = x;
+    this.y = y;
+    
+    strokeWeight(5);
+    stroke(#556B2F);
+    fill(#C0FF3E);
+    rect(this.x, this.y, width, height);
+    
+    thisFont = createFont("Bell MT Bold", 36);
+    textFont(thisFont);
+    fill(#000000);
+    textAlign(CENTER);
+    text(a + "(" + b + ") + " + c + "(" + d + ") yields " + e, x + width/2, y + height/2);
   }
 }
