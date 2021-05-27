@@ -82,7 +82,7 @@ public class UserInterface {
     text("In your " + n + " compound, \nwhat is your anion?", x + width/2, y + height/2);
   }
   
-  public void balancedReaction(int x, int y, float width, float height, String a, String b, String c, String d, String e) {
+  public void balancedReaction(int x, int y, float width, float height, String a, String b, String c, String d, String e, String f) {
     this.x = x;
     this.y = y;
     
@@ -95,6 +95,6 @@ public class UserInterface {
     textFont(thisFont);
     fill(#000000);
     textAlign(CENTER);
-    text(a + "(" + b + ") + " + c + "(" + d + ") yields " + e, x + width/2, y + height/2);
+    text(a + " + " + b + " + " +c + " + " + d + " yields " + e + " + " + f, x + width/2, y + height/2);
   }
 }
